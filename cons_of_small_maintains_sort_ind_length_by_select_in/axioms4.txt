@@ -1,0 +1,15 @@
+Lemma select_perm: forall x l y r, select x l = (y, r) -> Permutation (x :: l) (y :: r).
+
+Lemma select_rest_length : forall x l y r, select x l = (y, r) -> length l = length r.
+
+Lemma selsort_perm: forall n l, length l = n -> Permutation l (selsort l n).
+
+Lemma selection_sort_perm: forall l, Permutation l (selection_sort l).
+
+Lemma select_fst_leq: forall al bl x y, select x al = (y, bl) -> y <= x.
+
+Lemma le_all__le_one : forall lst y n, y <=* lst -> In n lst -> y <= n.
+
+Lemma select_smallest: forall al bl x y, select x al = (y, bl) -> y <=* bl.
+
+Lemma dilemma_result: forall y n0 n1 bl l gv2, y <=* n0 :: bl ->  select n0 bl = (n1, l) -> sorted (n0 :: gv2) -> sorted (y :: n1 :: gv2).

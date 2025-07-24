@@ -1,0 +1,1 @@
+Lemma select_rest_length : forall x l y r, select x l = (y, r) -> length l = length r.

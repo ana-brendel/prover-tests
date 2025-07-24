@@ -1,0 +1,1 @@
+Lemma select_perm: forall x l y r, select x l = (y, r) -> Permutation (x :: l) (y :: r).

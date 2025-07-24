@@ -1,0 +1,5 @@
+Lemma select_rest_length : forall x l y r, select x l = (y, r) -> length l = length r.
+
+Lemma dilemma_result_1: forall n0 n1 l l0, select n0 l = (n1, l0) -> Permutation (n1 :: l0) (n0 :: l).
+
+Lemma dilemma_result_2: forall n0 n1 l l0, Permutation (n1 :: l0) (n0 :: l) -> length l = length l0.
