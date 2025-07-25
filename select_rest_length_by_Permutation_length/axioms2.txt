@@ -1,2 +1,0 @@
-Lemma select_perm: forall x l y r, select x l = (y, r) -> Permutation (x :: l) (y :: r).
-Lemma dilemma_result (x y : nat) (l r : list nat) : Permutation (x :: l) (y :: r) -> length l = length r.

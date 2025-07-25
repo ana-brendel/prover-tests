@@ -1,3 +1,2 @@
 Lemma dilemma_result_1: forall x y l r, select x l = (y, r) -> Permutation (y :: r) (x :: l).
-
-Lemma dilemma_result_2: forall x y l r, Permutation (y :: r) (x :: l) -> length l = length r.
+Lemma dilemma_result_2: forall (x y : nat) l r, Permutation (y :: r) (x :: l) -> length l = length r.
