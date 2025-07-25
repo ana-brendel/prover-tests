@@ -2,11 +2,11 @@ import os
 import sys
 
 # success = 0
-success = "{\"status\": \"SUCCESS\""
+success = "SUCCESS"
 # fail = 1 
-fail = "{\"status\": \"FAILURE\""
+fail = "FAILURE"
 # incomplete = 2
-incomplete = "{\"status\": \"INCOMPLETE\""
+incomplete = "INCOMPLETE"
 
 def str_status(stat):
     if stat == 2:
@@ -26,7 +26,7 @@ axioms = "search-report-with-axioms-"
 def read_results(full):
     read = lambda x: open(x, "r").read().split("\n")
     for file in os.listdir(full):
-        if file.endswith("-proof.txt"):
+        if file.endswith("-proofs.txt"):
             contents = read(os.path.join(full,file))
             for line in contents:
                 if line.__contains__(incomplete):
