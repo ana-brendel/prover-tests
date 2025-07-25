@@ -48,14 +48,25 @@ test_results = {
     "select_smallest_by_select_fst_leq_2" : [1,2,3,4,5]
 }
 
-to_run = []
-
-ran = [
-    "selection_sort_sorted_by_selsort_sorted",
-    "selection_sort_is_correct_by_selection_sort_sorted",
-    "select_rest_length_by_select_perm",
+to_run = [
+    "cons_of_small_maintains_sort_ind_length_by_le_all__le_one",
+    "cons_of_small_maintains_sort_ind_length_by_select_in",
+    "cons_of_small_maintains_sort_ind_length_by_select_rest_length",
+    "cons_of_small_maintains_sort_ind_length_by_select_smallest",
+    "cons_of_small_maintains_sort_ind_list_by_Permutation_in",
+    "cons_of_small_maintains_sort_ind_list_by_le_all__le_one",
+    "cons_of_small_maintains_sort_ind_list_by_selsort_perm",
+    "le_all__le_one_by_Forall_forall",
+    "select_in_by_Permutation_in",
+    "select_in_by_select_perm",
     "select_rest_length_by_Permutation_length",
-    "selsort_sorted_by_select_rest_length_1"
+    "select_rest_length_by_select_perm",
+    "selection_sort_is_correct_by_selection_sort_sorted",
+    "selection_sort_sorted_by_selsort_sorted",
+    "selsort_perm_by_select_rest_length",
+    "selsort_sorted_by_select_rest_length_1",
+    "selsort_sorted_by_select_rest_length_2",
+    "selsort_sorted_by_select_smallest"
 ]
 
 # for test in test_results:
