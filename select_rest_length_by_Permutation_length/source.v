@@ -60,8 +60,5 @@ Proof.
     apply perm_swap.
 Qed.
 
-Lemma select_rest_length : forall x l y r, select x l = (y, r) -> length l = length r.
-Proof.
-    intros. 
-    apply select_perm in H.
-    Admitted.
+Lemma select_rest_length_mod (x y : nat) (l r : list nat) (H : Permutation (x :: l) (y :: r)) : length l = length r.
+Proof. Admitted.
