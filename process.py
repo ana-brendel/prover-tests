@@ -21,7 +21,7 @@ def str_status(stat):
 without = "search-report-without"
 without_fixed = "search-report-without-fixed"
 withs = "search-report-with-"
-axioms = "search-report-with-axioms-"
+axioms = "search-report-axioms-"
 
 def read_results(full):
     read = lambda x: open(x, "r").read().split("\n")
