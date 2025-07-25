@@ -44,7 +44,7 @@ def driver(test):
         if elem.startswith(without) or elem.startswith(without_fixed) or elem.startswith(withs) or elem.startswith(axioms):
             full = os.path.join(test,elem)
             r[elem] = str_status(read_results(full))
-    for label in r:
+    for label in sorted(r.keys()):
         print(f"    {label} = {r[label]}")
 
 

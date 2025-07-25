@@ -1,0 +1,1 @@
+Lemma dilemma_result: forall x y l r, select x l = (y, r) -> length l = length r.

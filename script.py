@@ -14,6 +14,13 @@ def axiom_command(test,axiom_label):
     c = f"python3 /home/proverbot/src/search_file.py --prelude={folder} --weightsfile=/home/proverbot/data/polyarg-weights.dat {folder}/{axiom_label}.v {a} --no-generate-report --max-proof-time=15 -P -o {folder}/search-report-{label}"
     return c
 
+def dilemma_command(test,dilemma):
+    folder = f"/home/proverbot/prover-tests/{test}"
+    a = f"--add-axioms={folder}/dilemma{dilemma}.txt"
+    label = f"dilemma-{dilemma}"
+    c = f"python3 /home/proverbot/src/search_file.py --prelude={folder} --weightsfile=/home/proverbot/data/polyarg-weights.dat {folder}/source.v {a} --no-generate-report --max-proof-time=15 -P -o {folder}/search-report-{label}"
+    return c
+
 test_results = {
     "select_rest_length_by_select_perm" : [1,2,3],
     "selsort_sorted_by_select_rest_length_1" : [1,2,3,4,5],
@@ -41,8 +48,13 @@ test_results = {
     "select_smallest_by_select_fst_leq_2" : [1,2,3,4,5]
 }
 
-to_run = ["selection_sort_sorted_by_selsort_sorted"]
-ran = ["selection_sort_is_correct_by_selection_sort_sorted","select_rest_length_by_select_perm","select_rest_length_by_Permutation_length", "selsort_sorted_by_select_rest_length_1"]
+to_run = [
+    "selection_sort_sorted_by_selsort_sorted",
+    "selection_sort_is_correct_by_selection_sort_sorted",
+    "select_rest_length_by_select_perm",
+    "select_rest_length_by_Permutation_length",
+    "selsort_sorted_by_select_rest_length_1"
+]
 
 # for test in test_results:
 for test in to_run:
@@ -50,6 +62,7 @@ for test in to_run:
     os.system(cmd(test,0))
     for i in test_results[test]:
         os.system(cmd(test,i))
+        os.system(dilemma_command(test,i))
     full = f"/home/proverbot/prover-tests/{test}"
     results = os.path.join(full,"result_summary")
     for file in os.listdir(full):

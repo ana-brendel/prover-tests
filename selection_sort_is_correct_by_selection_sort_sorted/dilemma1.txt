@@ -1,0 +1,1 @@
+Lemma dilemma_result: forall al, sorted (selection_sort al).

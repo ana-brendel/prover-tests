@@ -1,0 +1,1 @@
+Lemma dilemma_result: forall al gv1, sorted (selsort al gv1).

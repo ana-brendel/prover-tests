@@ -1,0 +1,1 @@
+Lemma dilemma_result: forall (al : list nat) gv0 n0 n1 l n, length al = gv0 -> select n0 al = (n1, l) -> S (length al) = S n -> n = gv0.

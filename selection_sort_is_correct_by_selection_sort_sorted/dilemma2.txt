@@ -1,0 +1,1 @@
+Lemma dilemma_result: forall al, selection_sort (selection_sort al) = selection_sort al.

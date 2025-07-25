@@ -1,0 +1,1 @@
+Lemma dilemma_result: forall al n n0 n1 l, S (length al) = S n -> select n0 al = (n1, l) -> n = length l.

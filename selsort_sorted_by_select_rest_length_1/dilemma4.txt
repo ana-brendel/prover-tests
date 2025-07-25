@@ -1,0 +1,2 @@
+Lemma dilemma_result_1  (n : nat) (al: list nat) : S (length al) = S n -> length al = n. 
+Lemma dilemma_result_2: forall al n n0 n1 l, length al = n -> select n0 al = (n1, l) -> n = length l.
