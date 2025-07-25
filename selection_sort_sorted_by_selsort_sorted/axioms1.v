@@ -41,5 +41,5 @@ Infix "<=*" := le_all (at level 70, no associativity).
 
 (* ################################################################# *)
 
-Lemma selection_sort_sorted_mod (al : list nat) : sorted (selsort al (length al)).
+Lemma dilemma_result (al : list nat) (gv1 : nat): sorted (selsort al gv1).
 Proof. Admitted.
