@@ -157,12 +157,5 @@ Proof.
     --- simpl in H1. rewrite H4 in H1. inversion H1. apply sorted_nil. assumption.
 Qed.
 
-Lemma selsort_sorted : forall n al, length al = n -> sorted (selsort al n).
-Proof. 
-    intros n. induction n.
-    - intros. simpl. destruct al. apply sorted_nil. apply sorted_nil.
-    - intros. destruct al.
-    -- simpl in H. lia.
-    -- simpl. destruct (select n0 al) eqn:Q. apply cons_of_small_maintains_sort.
-    --- simpl in H. 
-    Admitted.
+Lemma selsort_sorted (n n0 n1 : nat) (l al : list nat) (IHn : forall a : list nat, length a = n -> sorted (selsort a n)) (H : S (length al) = S n) (Q : select n0 al = (n1, l)) : n = length l.
+Proof. Admitted.
