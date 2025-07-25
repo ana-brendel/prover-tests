@@ -1,0 +1,2 @@
+Lemma dilemma_result_1: forall n0 n1 al l, select n0 al = (n1, l) -> Permutation (n1 :: l) (n0 :: al).
+Lemma dilemma_result_2: forall (n0 n1 : nat) (al l : list nat) (n : nat), Permutation (n1 :: l) (n0 :: al) -> length (n0 :: al) = S n -> length l = n.

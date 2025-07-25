@@ -1,0 +1,2 @@
+Lemma dilemma_result_1: forall x y al bl, select x al = (y, bl) -> Permutation (y :: bl) (x :: al).
+Lemma dilemma_result_2: forall (x y : nat) (al bl : list nat), Permutation (y :: bl) (x :: al) -> In y (x :: al).

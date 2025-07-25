@@ -1,0 +1,2 @@
+Lemma dilemma_result_1: forall n0 n1 al l, select n0 al = (n1, l) -> n1 <=* al ++ l.
+Lemma dilemma_result_2: forall n1 al l, n1 <=* al ++ l -> n1 <=* l.

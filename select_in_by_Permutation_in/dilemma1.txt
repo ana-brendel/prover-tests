@@ -1,0 +1,1 @@
+Lemma dilemma_result: forall (y : nat) (gv0 bl : list nat), Permutation gv0 (y :: bl) -> In y gv0.

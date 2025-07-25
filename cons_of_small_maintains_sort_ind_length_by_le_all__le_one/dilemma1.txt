@@ -1,0 +1,1 @@
+Lemma dilemma_result: forall n0 n1 y bl, In n1 (n0 :: bl) -> y <=* n0 :: bl -> y <= n1.

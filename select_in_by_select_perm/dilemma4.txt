@@ -1,0 +1,1 @@
+Lemma dilemma_result: forall x y al bl gv0, In y (selection_sort gv0) -> select x al = (y, bl) -> In y gv0.

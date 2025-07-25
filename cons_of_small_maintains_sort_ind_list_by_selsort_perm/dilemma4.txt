@@ -1,0 +1,2 @@
+Lemma dilemma_result_1: forall n bl, n = length bl -> Permutation (selection_sort bl) (selsort bl n).
+Lemma dilemma_result_2: forall n bl, Permutation (selection_sort bl) (selsort bl n) ->  Permutation bl (selsort bl n).

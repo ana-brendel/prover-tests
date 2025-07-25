@@ -1,0 +1,1 @@
+Lemma dilemma_result: forall bl n a l, selsort bl n = a :: l -> In a bl.

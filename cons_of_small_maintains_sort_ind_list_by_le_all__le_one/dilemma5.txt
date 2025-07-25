@@ -1,0 +1,2 @@
+Lemma dilemma_result_1: forall bl n a l, selsort bl n = a :: l -> In a (bl ++ bl).
+Lemma dilemma_result_2: forall a bl y, In a (bl ++ bl) -> y <=* bl -> y <= a.

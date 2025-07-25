@@ -1,0 +1,2 @@
+Lemma dilemma_result_1: forall n0 n1 bl l, select n0 bl = (n1, l) -> n1 <=* selsort l n1.
+Lemma dilemma_result_2: forall n1 l, n1 <=* selsort l n1 -> n1 <=* l.

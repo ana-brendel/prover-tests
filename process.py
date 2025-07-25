@@ -22,6 +22,7 @@ without = "search-report-without"
 without_fixed = "search-report-without-fixed"
 withs = "search-report-with-"
 axioms = "search-report-axioms-"
+dilemma = "search-report-dilemma-"
 
 def read_results(full):
     read = lambda x: open(x, "r").read().split("\n")
@@ -35,13 +36,12 @@ def read_results(full):
                     return 1
                 elif line.__contains__(success):
                     return 0
-    return -1
-            
+    return -1            
 
 def driver(test):
     r = {}
     for elem in os.listdir(test):
-        if elem.startswith(without) or elem.startswith(without_fixed) or elem.startswith(withs) or elem.startswith(axioms):
+        if elem.startswith(without) or elem.startswith(without_fixed) or elem.startswith(withs) or elem.startswith(axioms) or elem.startswith(dilemma):
             full = os.path.join(test,elem)
             r[elem] = str_status(read_results(full))
     for label in sorted(r.keys()):

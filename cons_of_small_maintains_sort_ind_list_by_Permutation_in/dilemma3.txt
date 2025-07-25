@@ -1,0 +1,2 @@
+Lemma dilemma_result_1: forall bl n a l, selsort bl n = a :: l -> In a (selsort bl n).
+Lemma dilemma_result_2: forall a bl n, In a (selsort bl n) -> In a bl.

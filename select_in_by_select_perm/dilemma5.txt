@@ -1,0 +1,1 @@
+Lemma dilemma_result: forall x y gv0 al bl, In y (gv0 ++ gv0) -> select x al = (y, bl) -> In y gv0.

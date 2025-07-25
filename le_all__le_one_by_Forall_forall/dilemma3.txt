@@ -1,0 +1,2 @@
+Lemma dilemma_result_1: forall y l, Forall (fun y0 : nat => y <= y0) l -> y <=* selsort l y.
+Lemma dilemma_result_2: forall n y l, In n l -> y <=* selsort l y -> y <= n.

@@ -7,4 +7,4 @@ Lemma select_smallest: forall al bl x y, select x al = (y, bl) -> y <=* bl.
 Lemma select_in : forall al bl x y, select x al = (y, bl) -> In y (x :: al).
 Lemma le_all__le_one : forall lst y n, y <=* lst -> In n lst -> y <= n.
 Lemma dilemma_result_1: forall bl n a l, selsort bl n = a :: l -> In a (bl ++ bl).
-Lemma dilemma_result_2: forall a bl, In a (bl ++ bl) -> In a bl.
+Lemma dilemma_result_2: forall (a : nat) bl, In a (bl ++ bl) -> In a bl.

@@ -48,7 +48,9 @@ test_results = {
     "select_smallest_by_select_fst_leq_2" : [1,2,3,4,5]
 }
 
-to_run = [
+to_run = []
+
+ran = [
     "selection_sort_sorted_by_selsort_sorted",
     "selection_sort_is_correct_by_selection_sort_sorted",
     "select_rest_length_by_select_perm",

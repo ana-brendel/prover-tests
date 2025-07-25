@@ -1,0 +1,1 @@
+Lemma dilemma_result: forall y n0 n1 bl l gv2, y <=* n0 :: bl ->  select n0 bl = (n1, l) -> sorted (n0 :: gv2) -> sorted (y :: n1 :: gv2).

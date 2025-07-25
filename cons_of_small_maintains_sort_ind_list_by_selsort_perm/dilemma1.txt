@@ -1,0 +1,1 @@
+Lemma dilemma_result: forall n bl, n = length bl -> Permutation bl (selsort bl n).

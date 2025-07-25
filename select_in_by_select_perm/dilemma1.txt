@@ -1,0 +1,1 @@
+Lemma dilemma_result: forall x y al bl, select x al = (y, bl) -> In y (x :: al).

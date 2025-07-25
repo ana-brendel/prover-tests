@@ -1,0 +1,1 @@
+Lemma dilemma_result: forall (x y : nat) (al bl : list nat), Permutation (x :: al) (y :: bl) -> In y (x :: al).

@@ -1,0 +1,1 @@
+Lemma dilemma_result: forall bl l n a y, selsort bl n = a :: l -> y <=* bl -> y <= a.

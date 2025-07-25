@@ -1,0 +1,2 @@
+Lemma dilemma_result_1: forall n (bl : list nat), n = length bl -> length bl <= n.
+Lemma dilemma_result_2: forall n bl, length bl <= n -> Permutation bl (selsort bl n).
