@@ -1,0 +1,1 @@
+Lemma Permutation_length {A} : forall (l l' : list A), Permutation l l' -> length l = length l'.

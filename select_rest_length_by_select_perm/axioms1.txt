@@ -1,1 +1,2 @@
+Lemma Permutation_length {A} : forall (l l' : list A), Permutation l l' -> length l = length l'.
 Lemma dilemma_result: forall x y l r, select x l = (y, r) -> length l = length r.
