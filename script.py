@@ -27,7 +27,7 @@ test_results = {
     "le_all__le_one_by_Forall_forall" : [1,2,3,4,5],
     "cons_of_small_maintains_sort_ind_list_by_Permutation_in" : [1,2,3,4,5],
     "cons_of_small_maintains_sort_ind_list_by_le_all__le_one" : [1,2,3,4,5],
-    "select_rest_length_by_Permutation_length" : [1],
+    "select_rest_length_by_Permutation_length" : [1,2],
     "cons_of_small_maintains_sort_ind_length_by_select_rest_length" : [1,2,3],
     "select_in_by_Permutation_in" : [1,2],
     "selection_sort_sorted_by_selsort_sorted" : [1,2,3,4,5],
