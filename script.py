@@ -35,7 +35,8 @@ test_results = {
 }
 
 # for test in test_results:
-for test in ["select_rest_length_by_select_perm"]:
+# for test in ["select_rest_length_by_select_perm"]:
+for test in ["select_rest_length_by_Permutation_length"]:
     os.system(cmd(test,-1))
     os.system(cmd(test,0))
     for i in test_results[test]:
