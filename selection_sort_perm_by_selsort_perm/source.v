@@ -41,9 +41,6 @@ Infix "<=*" := le_all (at level 70, no associativity).
 
 (* ################################################################# *)
 
-Lemma selection_sort_perm: forall l, Permutation l (selection_sort l).
-Proof. 
-    intros. 
-    unfold selection_sort. 
-    Admitted.
+Lemma selection_sort_perm_mod (l : list nat) : Permutation l (selsort l (length l)).
+Proof. Admitted.
 

@@ -41,44 +41,13 @@ Infix "<=*" := le_all (at level 70, no associativity).
 
 (* ################################################################# *)
 
-Lemma select_fst_leq: forall al bl x y, select x al = (y, bl) -> y <= x.
+Lemma select_smallest_mod
+  (a x y n: nat)
+  (al bl l: list nat)
+  (IHal: forall (bl0 : list nat) (x0 y0 : nat), select x0 al = (y0, bl0) -> y0 <=* bl0)
+  (Q: n <=* l)
+  (H: (n, x :: l) = (y, bl))
+  (H0: x > a)
+  (H2: select a al = (n, l))
+  : y <=* bl.
 Proof. Admitted.
-
-Lemma eqb_reflect : forall x y, reflect (x = y) (x =? y).
-Proof.
-  intros x y. apply iff_reflect. symmetry.
-  apply Nat.eqb_eq.
-Qed.
-
-Lemma ltb_reflect : forall x y, reflect (x < y) (x <? y).
-Proof.
-  intros x y. apply iff_reflect. symmetry.
-  apply Nat.ltb_lt.
-Qed.
-
-Lemma leb_reflect : forall x y, reflect (x <= y) (x <=? y).
-Proof.
-  intros x y. apply iff_reflect. symmetry.
-  apply Nat.leb_le.
-Qed.
-
-Hint Resolve ltb_reflect leb_reflect eqb_reflect : bdestruct.
-
-Ltac bdestruct X :=
-  let H := fresh in let e := fresh "e" in
-   evar (e: Prop);
-   assert (H: reflect e X); subst e;
-    [eauto with bdestruct
-    | destruct H as [H|H];
-       [ | try first [apply not_lt in H | apply not_le in H]]].
-
-
-Lemma select_smallest: forall al bl x y, select x al = (y, bl) -> y <=* bl.
-Proof. 
-    intros al. induction al.
-    - intros. inversion H. unfold le_all. apply Forall_nil.
-    - intros. unfold select in H. bdestruct (x <=? a).
-    -- fold select in H. destruct (select x al) eqn:Q. inversion Q. apply IHal in Q.
-    apply select_fst_leq in H2. inversion H. rewrite <- H3. apply Forall_cons. lia. assumption.
-    -- fold select in H. destruct (select a al) eqn:Q. inversion Q. apply IHal in Q.
-    Admitted.

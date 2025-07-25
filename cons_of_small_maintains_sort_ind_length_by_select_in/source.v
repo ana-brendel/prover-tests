@@ -41,12 +41,14 @@ Infix "<=*" := le_all (at level 70, no associativity).
 
 (* ################################################################# *)
 
-Lemma cons_of_small_maintains_sort: forall bl y n,
-  n = length bl -> y <=* bl -> sorted (selsort bl n) -> sorted (y :: selsort bl n).
-Proof.
-    intros bl y n. revert bl; revert y. induction n.
-    - intros. destruct bl. apply sorted_1. simpl in H. lia.
-    - intros. simpl. destruct bl.
-    -- apply sorted_1.
-    -- simpl in H. inversion H. destruct (select n0 bl) eqn:Q. inversion Q.
-    Admitted.
+Lemma cons_of_small_maintains_sort_mod 
+(n y n0 n1 : nat)
+(bl l: list nat)
+(H: S n = S (length bl))
+(H0: y <=* n0 :: bl)
+(H1: sorted (selsort (n0 :: bl) (S n)))
+(H3: n = length bl)
+(Q H4 : select n0 bl = (n1, l))
+(IHn: forall (y0 : nat) (bl0 : list nat), n = length bl0 -> y0 <=* bl0 -> sorted (selsort bl0 n) -> sorted (y0 :: selsort bl0 n)) :
+sorted (y :: n1 :: selsort l (length bl)).
+Proof. Admitted.

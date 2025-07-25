@@ -41,10 +41,12 @@ Infix "<=*" := le_all (at level 70, no associativity).
 
 (* ################################################################# *)
 
-Lemma le_all__le_one : forall lst y n, y <=* lst -> In n lst -> y <= n.
-Proof. 
-    intros. unfold le_all in H. destruct H.
-    - contradiction.
-    - inversion H0. 
-    -- lia.
-    -- Admitted.
+Lemma le_all__le_one_mod
+  (y n x: nat)
+  (l: list nat)
+  (H: y <= x)
+  (H1: Forall (fun y0 : nat => y <= y0) l)
+  (H0: In n (x :: l))
+  (H2: In n l)
+  : y <= n.
+Proof. Admitted.

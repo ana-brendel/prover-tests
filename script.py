@@ -41,7 +41,8 @@ test_results = {
     "select_smallest_by_select_fst_leq_2" : [1,2,3,4,5]
 }
 
-to_run = ["select_rest_length_by_select_perm","select_rest_length_by_Permutation_length", "selsort_sorted_by_select_rest_length_1"]
+to_run = ["selection_sort_is_correct_by_selection_sort_sorted"]
+ran = ["select_rest_length_by_select_perm","select_rest_length_by_Permutation_length", "selsort_sorted_by_select_rest_length_1"]
 
 # for test in test_results:
 for test in to_run:

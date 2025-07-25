@@ -41,27 +41,9 @@ Infix "<=*" := le_all (at level 70, no associativity).
 
 (* ################################################################# *)
 
-Lemma select_perm: forall x l y r, select x l = (y, r) -> Permutation (x :: l) (y :: r).
-Proof. 
-    intros x l; revert x.
-    induction l.
-    - simpl. intros. inversion H. auto.
-    - simpl. intros. destruct (x <=? a).
-    -- destruct (select x l) eqn:Q. inversion H.
-    apply perm_trans with (a :: y :: l0).
-    apply perm_trans with (a :: x :: l).
-    apply perm_swap.
-    apply perm_skip. apply IHl. rewrite <- H1. assumption.
-    apply perm_swap.
-    -- specialize (IHl a). destruct (select a l) eqn:Q. 
-    inversion H.
-    apply perm_trans with (x :: y :: l0).
-    apply perm_skip. apply IHl. rewrite H1. reflexivity.
-    apply perm_swap.
-Qed.
-
-Lemma select_in : forall al bl x y, select x al = (y, bl) -> In y (x :: al).
-Proof.
-    intros.
-    apply select_perm in H.
-    Admitted.
+Lemma select_in_mod
+  (al bl: list nat)
+  (x y: nat)
+  (H: Permutation (x :: al) (y :: bl))
+  : In y (x :: al).
+Proof. Admitted.

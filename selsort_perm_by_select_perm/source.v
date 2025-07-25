@@ -41,14 +41,11 @@ Infix "<=*" := le_all (at level 70, no associativity).
 
 (* ################################################################# *)
 
-Lemma selsort_perm: forall n l, length l = n -> Permutation l (selsort l n).
-Proof.
-    induction n.
-    - intros. destruct l. auto. inversion H.
-    - intros. destruct l. 
-    -- inversion H.
-    -- (* STUCK -- decide to use lemma here *)
-    simpl.
-    destruct (select n0 l) eqn: Q.
-    apply perm_trans with (n1 :: l0).
-    --- Admitted.
+Lemma selsort_perm_mod
+  (n n0 n1 : nat)
+  (IHn: forall l1 : list nat, length l1 = n -> Permutation l1 (selsort l1 n))
+  (l l0: list nat)
+  (H: length (n0 :: l) = S n)
+  (Q: select n0 l = (n1, l0))
+  : Permutation (n0 :: l) (n1 :: l0).
+Proof. Admitted.

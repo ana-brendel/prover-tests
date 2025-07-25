@@ -42,7 +42,5 @@ Infix "<=*" := le_all (at level 70, no associativity).
 (* ################################################################# *)
 
 
-Lemma selection_sort_sorted : forall al, sorted (selection_sort al).
-Proof. 
-    unfold selection_sort. intros. 
-    Admitted.
+Lemma selection_sort_sorted_mod (al : list nat) : sorted (selsort al (length al)).
+Proof. Admitted.

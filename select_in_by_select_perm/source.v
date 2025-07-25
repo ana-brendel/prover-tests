@@ -41,7 +41,5 @@ Infix "<=*" := le_all (at level 70, no associativity).
 
 (* ################################################################# *)
 
-Lemma select_in : forall al bl x y, select x al = (y, bl) -> In y (x :: al).
-Proof.
-    intros.
-    Admitted.
+Lemma select_in_mod (al bl : list nat) (x y : nat) (H : select x al = (y, bl)) : In y (x :: al).
+Proof. Admitted.

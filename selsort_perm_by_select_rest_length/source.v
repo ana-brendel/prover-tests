@@ -41,36 +41,12 @@ Infix "<=*" := le_all (at level 70, no associativity).
 
 (* ################################################################# *)
 
-Lemma select_perm: forall x l y r, select x l = (y, r) -> Permutation (x :: l) (y :: r).
-Proof. 
-    intros x l; revert x.
-    induction l.
-    - simpl. intros. inversion H. auto.
-    - simpl. intros. destruct (x <=? a).
-    -- destruct (select x l) eqn:Q. inversion H.
-    apply perm_trans with (a :: y :: l0).
-    apply perm_trans with (a :: x :: l).
-    apply perm_swap.
-    apply perm_skip. apply IHl. rewrite <- H1. assumption.
-    apply perm_swap.
-    -- specialize (IHl a). destruct (select a l) eqn:Q. 
-    inversion H.
-    apply perm_trans with (x :: y :: l0).
-    apply perm_skip. apply IHl. rewrite H1. reflexivity.
-    apply perm_swap.
-Qed.
-
-Lemma selsort_perm: forall n l, length l = n -> Permutation l (selsort l n).
-Proof.
-    induction n.
-    - intros. destruct l. auto. inversion H.
-    - intros. destruct l. 
-    -- inversion H.
-    -- (* STUCK -- decide to use lemma here *)
-    simpl.
-    destruct (select n0 l) eqn: Q.
-    apply perm_trans with (n1 :: l0).
-    --- apply select_perm. assumption.
-    --- apply perm_skip. apply IHn. inversion H.
-        symmetry. 
-        Admitted.
+Lemma selsort_perm_mod
+  (n n0 n1 : nat)
+  (IHn: forall l1 : list nat, length l1 = n -> Permutation l1 (selsort l1 n))
+  (l l0: list nat)
+  (H: length (n0 :: l) = S n)
+  (Q: select n0 l = (n1, l0))
+  (H1: length l = n)
+  : length l = length l0.
+Proof. Admitted.

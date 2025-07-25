@@ -41,12 +41,12 @@ Infix "<=*" := le_all (at level 70, no associativity).
 
 (* ################################################################# *)
 
-Lemma selsort_sorted : forall n al, length al = n -> sorted (selsort al n).
-Proof. 
-    intros n. induction n.
-    - intros. simpl. destruct al. apply sorted_nil. apply sorted_nil.
-    - intros. destruct al.
-    -- simpl in H. lia.
-    -- simpl. destruct (select n0 al) eqn:Q. 
-    Admitted.
+Lemma selsort_sorted_mod
+  (n n0 n1: nat)
+  (IHn: forall al0 : list nat, length al0 = n -> sorted (selsort al0 n))
+  (al l: list nat)
+  (H: length (n0 :: al) = S n)
+  (Q: select n0 al = (n1, l))
+  : sorted (n1 :: selsort l n).
+Proof. Admitted.
 

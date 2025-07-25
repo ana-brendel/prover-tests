@@ -41,20 +41,13 @@ Infix "<=*" := le_all (at level 70, no associativity).
 
 (* ################################################################# *)
 
-Lemma le_all__le_one : forall lst y n, y <=* lst -> In n lst -> y <= n.
-Proof. 
-    intros. unfold le_all in H. destruct H.
-    - contradiction.
-    - inversion H0. 
-    -- lia.
-    -- eapply Forall_forall. eassumption. eassumption.
-Qed.
-
-Lemma cons_of_small_maintains_sort: forall bl y n,
-  n = length bl -> y <=* bl -> sorted (selsort bl n) -> sorted (y :: selsort bl n).
-Proof.
-    intros. induction (selsort bl n) eqn:K.
-    - apply sorted_1.
-    - apply sorted_cons.
-    --  eapply le_all__le_one. eauto. 
-    Admitted.
+Lemma cons_of_small_maintains_sort_mod
+  (bl l : list nat)
+  (y a n: nat)
+  (H: n = length bl)
+  (H0: y <=* bl)
+  (K: selsort bl n = a :: l)
+  (H1: sorted (a :: l))
+  (IHl: selsort bl n = l -> sorted l -> sorted (y :: l))
+  : In a bl.
+Proof. Admitted.

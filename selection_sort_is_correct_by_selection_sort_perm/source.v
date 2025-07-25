@@ -41,7 +41,5 @@ Infix "<=*" := le_all (at level 70, no associativity).
 
 (* ################################################################# *)
 
-Theorem selection_sort_is_correct : is_a_sorting_algorithm selection_sort.
-Proof. 
-    unfold is_a_sorting_algorithm. split. 
-    Admitted.
+Theorem selection_sort_is_correct_mod (al : list nat) : Permutation al (selection_sort al).
+Proof. Admitted.

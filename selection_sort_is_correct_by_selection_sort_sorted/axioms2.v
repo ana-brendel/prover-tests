@@ -41,11 +41,5 @@ Infix "<=*" := le_all (at level 70, no associativity).
 
 (* ################################################################# *)
 
-Lemma selsort_sorted_mod
-  (n n0 n1 : nat)
-  (IHn: forall al0 : list nat, length al0 = n -> sorted (selsort al0 n))
-  (al l: list nat)
-  (H: length (n0 :: al) = S n)
-  (Q: select n0 al = (n1, l))
-  : length l = n.
+Lemma dilemma_result (gv0 : list nat) (H : selection_sort gv0 = gv0) : sorted gv0.
 Proof. Admitted.

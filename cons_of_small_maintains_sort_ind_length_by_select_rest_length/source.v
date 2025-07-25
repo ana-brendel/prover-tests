@@ -41,55 +41,15 @@ Infix "<=*" := le_all (at level 70, no associativity).
 
 (* ################################################################# *)
 
-Lemma select_perm: forall x l y r, select x l = (y, r) -> Permutation (x :: l) (y :: r).
-Proof. 
-    intros x l; revert x.
-    induction l.
-    - simpl. intros. inversion H. auto.
-    - simpl. intros. destruct (x <=? a).
-    -- destruct (select x l) eqn:Q. inversion H.
-    apply perm_trans with (a :: y :: l0).
-    apply perm_trans with (a :: x :: l).
-    apply perm_swap.
-    apply perm_skip. apply IHl. rewrite <- H1. assumption.
-    apply perm_swap.
-    -- specialize (IHl a). destruct (select a l) eqn:Q. 
-    inversion H.
-    apply perm_trans with (x :: y :: l0).
-    apply perm_skip. apply IHl. rewrite H1. reflexivity.
-    apply perm_swap.
-Qed.
-
-Lemma le_all__le_one : forall lst y n, y <=* lst -> In n lst -> y <= n.
-Proof. 
-    intros. unfold le_all in H. destruct H.
-    - contradiction.
-    - inversion H0. 
-    -- lia.
-    -- eapply Forall_forall. eassumption. eassumption.
-Qed.
-   
-Lemma select_in : forall al bl x y, select x al = (y, bl) -> In y (x :: al).
-Proof.
-    intros.
-    apply select_perm in H.
-    eapply Permutation_in.
-    symmetry in H.
-    eassumption.
-    simpl. left. reflexivity.
-Qed.
-
-Lemma cons_of_small_maintains_sort: forall bl y n,
-  n = length bl -> y <=* bl -> sorted (selsort bl n) -> sorted (y :: selsort bl n).
-Proof.
-    intros bl y n. revert bl; revert y. induction n.
-    - intros. destruct bl. apply sorted_1. simpl in H. lia.
-    - intros. simpl. destruct bl.
-    -- apply sorted_1.
-    -- simpl in H. inversion H. destruct (select n0 bl) eqn:Q. inversion Q.
-    apply select_in in Q. 
-    apply sorted_cons. 
-    eapply le_all__le_one. eassumption. eassumption.
-    rewrite <- H3. apply IHn.
-    --- rewrite H3. 
-    Admitted.
+Lemma cons_of_small_maintains_sort_mod 
+(n y n0 n1: nat)
+(bl l : list nat)
+(H: S n = S (length bl))
+(H0: y <=* n0 :: bl)
+(H1: sorted (selsort (n0 :: bl) (S n)))
+(H3: n = length bl)
+(Q: In n1 (n0 :: bl))
+(H4: select n0 bl = (n1, l))
+(IHn: forall (y0 : nat) (bl0 : list nat), n = length bl0 -> y0 <=* bl0 -> sorted (selsort bl0 n) -> sorted (y0 :: selsort bl0 n)) 
+: length bl = length l.
+Proof. Admitted.
