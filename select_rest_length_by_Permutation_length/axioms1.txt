@@ -1,1 +1,1 @@
-Lemma dilemma_result: forall x y l r, Permutation (x :: l) (y :: r) -> length l = length r.
+Lemma dilemma_result (x y : nat) (l r : list nat) : Permutation (x :: l) (y :: r) -> length l = length r.
