@@ -40,7 +40,5 @@ Definition le_all x xs := Forall (fun y => x <= y) xs.
 Infix "<=*" := le_all (at level 70, no associativity).
 (* ################################################################# *)
 
-Lemma select_rest_length : forall x l y r, select x l = (y, r) -> length l = length r.
-Proof.
-    intros. 
-    Admitted.
+Lemma select_rest_length (x y : nat) (l r : list nat) (H : select x l = (y, r)) : length l = length r.
+Proof. Admitted.
