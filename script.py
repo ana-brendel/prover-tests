@@ -41,8 +41,10 @@ test_results = {
     "select_smallest_by_select_fst_leq_2" : [1,2,3,4,5]
 }
 
+to_run = ["select_rest_length_by_select_perm","select_rest_length_by_Permutation_length", "selsort_sorted_by_select_rest_length_1"]
+
 # for test in test_results:
-for test in ["select_rest_length_by_select_perm","select_rest_length_by_Permutation_length", "selsort_sorted_by_select_rest_length_1"]:
+for test in to_run:
     os.system(cmd(test,-1))
     os.system(cmd(test,0))
     for i in test_results[test]:
@@ -54,3 +56,9 @@ for test in ["select_rest_length_by_select_perm","select_rest_length_by_Permutat
             label = file.removesuffix(".v")
             os.system(axiom_command(test,label))
     os.system(f"python3 process.py {full} > {results}")
+
+# print to terminal
+for test in to_run:
+    full = f"/home/proverbot/prover-tests/{test}"
+    results = os.path.join(full,"result_summary")
+    os.system(f"cat {results}")
