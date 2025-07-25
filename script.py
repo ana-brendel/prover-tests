@@ -61,4 +61,8 @@ for test in to_run:
 for test in to_run:
     full = f"/home/proverbot/prover-tests/{test}"
     results = os.path.join(full,"result_summary")
+    print("------------------------------------------------------------------------------")
+    print(test)
     os.system(f"cat {results}")
+    print("------------------------------------------------------------------------------")
+    print()
