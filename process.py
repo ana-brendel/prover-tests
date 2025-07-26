@@ -62,13 +62,13 @@ def analyze(test,label):
         found = False
         for l in r:
             if l.startswith(dilemma) and not found:
+                print(l)
                 if r[l] == 0:
                     n = int(l.removeprefix(dilemma))
                     axi = f"search-report-axioms-axioms{n}"
                     axi1 = f"search-report-axioms-axioms{n}_1"
                     axi2 = f"search-report-axioms-axioms{n}_2"
                     print(f"{label} provable with just {l}")
-                    print(axi)
                     if axi in r:
                         if r[axi] == 0:
                             print(f"    {label} dilemma {l} provable")
