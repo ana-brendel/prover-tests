@@ -26,7 +26,7 @@ def lfind(test,without):
     a = f"--add-axioms={folder}/axioms.txt" if not without else ""
     label = "without" if without else "with-0"
     file = os.path.join(folder,test)
-    c = f"python3 /home/proverbot/src/search_file.py --prelude={folder} --weightsfile=/home/proverbot/data/polyarg-weights.dat {file} {a} --no-generate-report --max-proof-time=15 -P -o {folder}/search-report-{label}"
+    c = f"python3 /home/proverbot/src/search_file.py --prelude={folder} --weightsfile=/home/proverbot/data/polyarg-weights.dat {file}.v {a} --no-generate-report --max-proof-time=15 -P -o {folder}/search-report-{label}"
     return c
 
 test_results = {
