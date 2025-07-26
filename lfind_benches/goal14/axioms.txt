@@ -1,0 +1,5 @@
+Lemma dilemma_one: forall gv2 gv3 n, (sorted gv2 = gv3 -> sorted (insort n gv2) = gv3).
+Lemma dilemma_two: forall gv2 n, (sorted gv2 = true -> sorted (insort n gv2) = true).
+Lemma dilemma_three: forall x gv3 n, (sorted (sort x) = gv3 -> sorted (insort n (sort x)) = gv3).
+Lemma dilemma_four: forall x n, (sorted (insort n (sort x)) = true).
+Lemma dilemma_five: forall x n, (leq n n = sorted (insort n (sort x))).

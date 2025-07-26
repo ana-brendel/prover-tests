@@ -1,0 +1,5 @@
+Lemma dilemma_one: forall n0 h1_1 h1_2 gv3 gv4, (has_leftist_property h1_1 = gv4 ->  has_leftist_property h1_2 = gv4 ->  has_leftist_property gv3 = gv4 ->  has_leftist_property (mergea n0 h1_1 (merge h1_2 gv3)) = gv4).
+Lemma dilemma_two: forall n0 h1_1 h1_2 gv3, (has_leftist_property h1_1 = true ->  has_leftist_property h1_2 = true ->  has_leftist_property gv3 = true ->  has_leftist_property (mergea n0 h1_1 (merge h1_2 gv3)) = true).
+Lemma dilemma_three: forall gv4 n0 h1_1 h1_2 n1 n2 h2_1 h2_2, (has_leftist_property h1_1 = gv4 ->  has_leftist_property h1_2 = gv4 ->  has_leftist_property (Heap n1 n2 h2_1 h2_2) = gv4 ->  has_leftist_property (mergea n0 h1_1 (merge h1_2 (Heap n1 n2 h2_1 h2_2))) =  gv4).
+Lemma dilemma_four: forall n0 n1 n2 h2_1 h2_2 h1_1 h1_2, (has_leftist_property (Heap n1 n2 h2_1 h2_2) = true ->  has_leftist_property h1_2 = true ->  has_leftist_property h1_1 = true ->  has_leftist_property (mergea n0 h1_1 (merge h1_2 (Heap n1 n2 h2_1 h2_2))) =  true).
+Lemma dilemma_five: forall gv0, (false <> gv0 -> gv0 = true).

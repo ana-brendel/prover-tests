@@ -1,0 +1,9 @@
+Lemma dilemma_one: forall n y z, (lst_mem n y = true -> lst_mem n (append z y) = true).
+Lemma dilemma_two_a: forall n y,  (lst_mem n y = true -> lst_eq (cons n y) y).
+Lemma dilemma_two_b: forall n y z, (lst_eq (cons n y) y -> lst_mem n (append z y) = true).
+Lemma dilemma_three_a: forall n y (lst_mem n y = true -> lst_eq y (cons n y)).
+Lemma dilemma_three_b: forall n y z, (lst_eq y (cons n y) -> lst_mem n (append z y) = true).
+Lemma dilemma_four_a: forall n y, (lst_mem n y = true -> lst_subset (cons n y) y).
+Lemma dilemma_four_b: forall n y z,(lst_subset (cons n y) y -> lst_mem n (append z y) = true).
+Lemma dilemma_five_a: forall n y, (lst_mem n y = true -> lst_eq (cons n y) (append y y)).
+Lemma dilemma_five_b: forall n y z,(lst_eq (cons n y) (append y y) -> lst_mem n (append z y) = true).

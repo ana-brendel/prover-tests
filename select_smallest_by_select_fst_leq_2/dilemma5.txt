@@ -1,0 +1,2 @@
+Lemma dilemma_result_1: forall (x : nat) (l bl : list nat), x :: l = bl -> Permutation bl (x :: l).
+Lemma dilemma_result_2: forall x a bl l al y, x > a -> Permutation bl (x :: l) -> select a al = (y, l) -> y <=* bl.

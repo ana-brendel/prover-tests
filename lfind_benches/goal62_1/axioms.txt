@@ -1,0 +1,5 @@
+Lemma dilemma_one: forall n y gv1, (sorted (cons n nil) = gv1 -> less y n = false -> leq n y = gv1).
+Lemma dilemma_two: forall n y, (less y n = false -> leq n y = true).
+Lemma dilemma_three: forall gv0, (false <> gv0 -> gv0 = true).
+Lemma dilemma_four: forall y gv0, (leq y y = gv0 -> gv0 = true).
+Lemma dilemma_five: forall n gv0, (leq n n = gv0 -> gv0 = true).

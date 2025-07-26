@@ -1,0 +1,6 @@
+Lemma dilemma_one: forall x gv2 gv3 n, (count x gv2 = gv3 -> eqb x n = false -> count x (insort n gv2) = gv3).
+Lemma dilemma_two: forall x y gv3 n, (count x (sort y) = gv3 ->  eqb x n = false -> count x (insort n (sort y)) = gv3).
+Lemma dilemma_three: forall x gv2 y n, (count x gv2 = count x y ->  eqb x n = false -> count x (insort n gv2) = count x y).
+Lemma dilemma_four: forall x n y, (eqb x n = false -> count x (insort n (sort y)) = count x y).
+Lemma dilemma_five_a: forall x n, (eqb x n = false -> x <> n).
+Lemma dilemma_five_b: forall x n y, (x <> n -> count x (insort n (sort y)) = count x y).

@@ -1,0 +1,1 @@
+Lemma dilemma_result: forall gv0 al, Permutation (selection_sort gv0) al -> Permutation al gv0.

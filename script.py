@@ -21,6 +21,14 @@ def dilemma_command(test,dilemma):
     c = f"python3 /home/proverbot/src/search_file.py --prelude={folder} --weightsfile=/home/proverbot/data/polyarg-weights.dat {folder}/source.v {a} --no-generate-report --max-proof-time=15 -P -o {folder}/search-report-{label}"
     return c
 
+def lfind(test,without):
+    folder = f"/home/proverbot/prover-tests/lfind_benches/{test}"
+    a = f"--add-axioms={folder}/axioms.txt" if not without else ""
+    label = "without" if without else "with-0"
+    file = os.path.join(folder,test)
+    c = f"python3 /home/proverbot/src/search_file.py --prelude={folder} --weightsfile=/home/proverbot/data/polyarg-weights.dat {file} {a} --no-generate-report --max-proof-time=15 -P -o {folder}/search-report-{label}"
+    return c
+
 test_results = {
     "select_rest_length_by_select_perm" : [1,2,3],
     "selsort_sorted_by_select_rest_length_1" : [1,2,3,4,5],
@@ -48,7 +56,7 @@ test_results = {
     "select_smallest_by_select_fst_leq_2" : [1,2,3,4,5]
 }
 
-to_run = [
+ran = [
     "cons_of_small_maintains_sort_ind_length_by_le_all__le_one",
     "cons_of_small_maintains_sort_ind_length_by_select_in",
     "cons_of_small_maintains_sort_ind_length_by_select_rest_length",
@@ -70,23 +78,72 @@ to_run = [
 ]
 
 # for test in test_results:
-for test in to_run:
-    os.system(cmd(test,-1))
-    os.system(cmd(test,0))
-    for i in test_results[test]:
-        os.system(cmd(test,i))
-        os.system(dilemma_command(test,i))
-    full = f"/home/proverbot/prover-tests/{test}"
-    results = os.path.join(full,"result_summary")
-    for file in os.listdir(full):
-        if file.endswith(".v") and file.startswith("axioms"):
-            label = file.removesuffix(".v")
-            os.system(axiom_command(test,label))
-    os.system(f"python3 process.py {full} > {results}")
+for test in test_results:
+    if test not in ran:
+        os.system(cmd(test,-1))
+        os.system(cmd(test,0))
+        for i in test_results[test]:
+            os.system(cmd(test,i))
+            os.system(dilemma_command(test,i))
+        full = f"/home/proverbot/prover-tests/{test}"
+        results = os.path.join(full,"result_summary")
+        for file in os.listdir(full):
+            if file.endswith(".v") and file.startswith("axioms"):
+                label = file.removesuffix(".v")
+                os.system(axiom_command(test,label))
+        os.system(f"python3 process.py {full} > {results}")
+
+for test in os.listdir("/home/proverbot/prover-tests/lfind_benches"):
+    if not test.startswith("."):
+        os.system(lfind(test,True))
+        os.system(lfind(test,False))
+        full = f"/home/proverbot/prover-tests/lfind_benches/{test}"
+        results = os.path.join(full,"result_summary")
+        os.system(f"python3 process.py {full} > {results}")
 
 # print to terminal
-for test in to_run:
+for test in test_results:
     full = f"/home/proverbot/prover-tests/{test}"
+    results = os.path.join(full,"result_summary")
+    print("------------------------------------------------------------------------------")
+    print(test)
+    os.system(f"cat {results}")
+    print("------------------------------------------------------------------------------")
+    print()
+
+lfind_tests = [
+        "goal50_3",
+        "goal41_3",
+        "goal49_2",
+        "goal62_2",
+        "goal42",
+        "goal49_1",
+        "goal62_1",
+        "goal47_1",
+        "goal50_1",
+        "goal69_1",
+        "goal41_1",
+        "goal44",
+        "goal47_2",
+        "goal50_2",
+        "goal14",
+        "goal41_2",
+        "goal69_2",
+        "goal49_3",
+        "leftist_mergea_by_rank_right_height_5",
+        "leftist_mergea_by_rank_right_height_1",
+        "leftist_merge_by_leftist_mergea",
+        "leftist_mergea_by_rank_right_height_6",
+        "leftist_mergea_by_rank_right_height_2",
+        "leftist_hinsert_by_leftist_merge",
+        "leftist_mergea_by_rank_right_height_3",
+        "leftist_mergea_by_rank_right_height_4",
+        "leftist_hinsert_mulit_by_leftist_hinsert"
+    ]
+
+# print to terminal
+for test in lfind_tests:
+    full = f"/home/proverbot/prover-tests/lfind_benches/{test}"
     results = os.path.join(full,"result_summary")
     print("------------------------------------------------------------------------------")
     print(test)

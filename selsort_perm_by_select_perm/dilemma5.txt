@@ -1,0 +1,1 @@
+Lemma dilemma_result: forall n1 l0 gv1 n0 l, Permutation (n1 :: l0) gv1 ->  select n0 l = (n1, l0) -> Permutation (n0 :: l) gv1.

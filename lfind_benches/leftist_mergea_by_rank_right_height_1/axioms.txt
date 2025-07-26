@@ -1,0 +1,5 @@
+Lemma dilemma_one: forall l v r gv6, (has_leftist_property r = gv6 ->  has_leftist_property l = gv6 ->  rank r <= rank l -> has_leftist_property (Heap (rank r + 1) v l r) = gv6).
+Lemma dilemma_two: forall l v r, (rank r <= rank l ->  has_leftist_property l = true ->  has_leftist_property r = true ->  has_leftist_property (Heap (rank r + 1) v l r) = true).
+Lemma dilemma_three: forall gv0, (false <> gv0 -> gv0 = true).
+Lemma dilemma_four: forall l v r gv1 gv6, (mergea v l r = gv1 ->  has_leftist_property l = gv6 ->  has_leftist_property r = gv6 -> has_leftist_property gv1 = gv6).
+Lemma dilemma_five: forall l v r gv3 gv6, (right_height r = gv3 ->  has_leftist_property l = gv6 ->  has_leftist_property r = gv6 ->  gv3 <= rank l -> has_leftist_property (Heap (gv3 + 1) v l r) = gv6).

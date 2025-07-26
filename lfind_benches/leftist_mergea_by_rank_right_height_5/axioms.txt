@@ -1,0 +1,9 @@
+Lemma dilemma_one: forall l v r, (has_leftist_property l = true ->  has_leftist_property r = true ->  right_height l < right_height r ->  has_leftist_property (Heap (rank l + 1) v r l) = true).
+Lemma dilemma_two_a: forall l v r, (right_height l < right_height r -> right_height l < hsize r).
+Lemma dilemma_two_b: forall l v r, (right_height l < hsize r ->  has_leftist_property l = true ->  has_leftist_property r = true ->  has_leftist_property (Heap (rank l + 1) v r l) = true)
+Lemma dilemma_three_a: forall l v r, (right_height l < right_height r -> right_height l <= hsize r).
+Lemma dilemma_three_b: forall l v r, (has_leftist_property l = true ->  has_leftist_property r = true ->  right_height l <= hsize r ->  has_leftist_property (Heap (rank l + 1) v r l) = true).
+Lemma dilemma_four_a: forall l v r, (right_height l < right_height r -> right_height l <= right_height r).
+Lemma dilemma_four_b: forall l v r, (has_leftist_property l = true ->  has_leftist_property r = true ->  right_height l <= right_height r ->  has_leftist_property (Heap (rank l + 1) v r l) = true)
+Lemma dilemma_five_a: forall l v r, (has_leftist_property l = true -> right_height l = rank l).
+Lemma dilemma_five_b: forall l v r, (right_height l < right_height r ->  right_height l = rank l ->  has_leftist_property r = true ->  has_leftist_property (Heap (rank l + 1) v r l) = true).

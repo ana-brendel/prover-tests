@@ -1,0 +1,8 @@
+Lemma dilemma_one: forall x n y l gv3, (eqb x n = false ->  count x (insort y l) = gv3 -> count x (cons y (cons n l)) = gv3).
+Lemma dilemma_two: forall x y n l, (x <> y -> eqb x n = false -> count x (cons y (cons n l)) = count x l).
+Lemma dilemma_three_a: forall x n, (eqb x n = false -> x <> n).
+Lemma dilemma_three_b: forall x n y l, (x <> n -> x <> y -> count x (cons y (cons n l)) = count x l).
+Lemma dilemma_four_a: forall x n, (eqb x n = false -> n <> x).
+Lemma dilemma_four_b: forall n x y l, (n <> x -> x <> y -> count x (cons y (cons n l)) = count x l).
+Lemma dilemma_five_a: forall x n, (eqb x n = false -> false = eqb n x).
+Lemma dilemma_five_b: forall x y n l, (x <> y -> false = eqb n x -> count x (cons y (cons n l)) = count x l).

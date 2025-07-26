@@ -1,0 +1,7 @@
+Lemma dilemma_one: forall x n z y, (Nat_beq x n = true -> lst_mem n z = true -> lst_mem x (lst_union y z) = true).
+Lemma dilemma_two: forall y z, (lst_union z (lst_union y z) = lst_union y z).
+Lemma dilemma_three: forall y z, (lst_union (lst_union y z) z = lst_union y z).
+Lemma dilemma_four_a: forall x n, (Nat_beq x n = true -> x = n).
+Lemma dilemma_four_b: forall x n z y, (x = n -> lst_mem n z = true -> lst_mem x (lst_union y z) = true).
+Lemma dilemma_five_a: forall x n, (Nat_beq x n = true -> n = x).
+Lemma dilemma_five_b: forall n x z y,(n = x -> lst_mem n z = true -> lst_mem x (lst_union y z) = true).

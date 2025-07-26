@@ -1,0 +1,5 @@
+Lemma dilemma_one: forall x n, (has_leftist_property x = true ->  has_leftist_property (merge (Heap 1 n Hleaf Hleaf) x) = true).
+Lemma dilemma_two: forall x n, (hinsert x n = merge (Heap 1 n Hleaf Hleaf) x).
+Lemma dilemma_three: forall gv0, (false <> gv0 -> gv0 = true).
+Lemma dilemma_four: forall gv2 x, (true = has_leftist_property gv2 ->  has_leftist_property x = true -> has_leftist_property (merge gv2 x) = true).
+Lemma dilemma_five: forall gv6 x n, (false <> gv6 ->  has_leftist_property x = gv6 ->  has_leftist_property (merge (Heap 1 n Hleaf Hleaf) x) = gv6).

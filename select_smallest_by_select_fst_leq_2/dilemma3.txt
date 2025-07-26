@@ -1,0 +1,2 @@
+Lemma dilemma_result_1: forall a al y l, select a al = (y, l) -> Permutation (a :: al) (y :: l).
+Lemma dilemma_result_2: forall x a al y l bl, x > a -> Permutation (a :: al) (y :: l) -> x :: l = bl -> y <=* bl.

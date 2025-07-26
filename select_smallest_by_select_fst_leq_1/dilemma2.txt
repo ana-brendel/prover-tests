@@ -1,0 +1,2 @@
+Lemma dilemma_result_1 : forall x y al l, select x al = (y, l) -> y <=* x :: al.
+Lemma dilemma_result_2 : forall x y a al bl l, y <=* x :: al -> a :: l = bl -> x <= a -> y <=* bl.

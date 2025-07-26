@@ -1,0 +1,5 @@
+Lemma dilemma_one: forall x y gv2, (lst_subset (lst_intersection x y) (append gv2 x)).
+Lemma dilemma_two: forall x y n gv3, (lst_subset (lst_intersection x y) (append (cons n gv3) x)).
+Lemma dilemma_three: forall gv0 x n, (lst_subset gv0 x -> lst_subset gv0 (append (cons n nil) x)).
+Lemma dilemma_four: forall gv0 x gv2, (lst_subset gv0 x -> lst_subset gv0 (append gv2 x)).
+Lemma dilemma_five: forall gv0 x n gv3, (lst_subset gv0 x -> lst_subset gv0 (append (cons n gv3) x)).

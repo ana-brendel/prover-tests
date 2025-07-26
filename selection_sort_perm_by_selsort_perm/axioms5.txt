@@ -1,5 +1,3 @@
 Lemma select_perm: forall x l y r, select x l = (y, r) -> Permutation (x :: l) (y :: r).
-
 Lemma select_rest_length : forall x l y r, select x l = (y, r) -> length l = length r.
-
 Lemma dilemma_result: forall gv0 l, Permutation (selection_sort gv0) l -> Permutation l gv0.

@@ -1,0 +1,4 @@
+Lemma dilemma_one: forall x n gv1 gv2, (mem x (cons n gv1) = gv2 -> x = n \/ mem x gv1 = gv2).
+Lemma dilemma_two: forall x n gv1, (mem x (cons n gv1) = true -> x = n \/ mem x gv1 = true).
+Lemma dilemma_three: forall x n n0 l gv2, (mem x (cons n (cons n0 l)) = gv2 -> x = n \/ mem x (cons n0 l) = gv2).
+Lemma dilemma_four: forall x n n0 l, (mem x (cons n (cons n0 l)) = true -> x = n \/ mem x (cons n0 l) = true).

@@ -1,0 +1,2 @@
+Lemma dilemma_one: forall x n0 n l gv2, (mem x (cons n0 (insort n l)) = gv2 -> x = n \/ mem x (cons n0 l) = gv2).
+Lemma dilemma_two: forall x n0 n l, (mem x (cons n0 (insort n l)) = true -> x = n \/ mem x (cons n0 l) = true).

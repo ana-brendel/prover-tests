@@ -1,0 +1,6 @@
+Lemma dilemma_one: forall x n gv2 gv4, (Bool.Is_true (eqb x n) ->  count x gv2 = gv4 -> count x (insort n gv2) = succ gv4).
+Lemma dilemma_two: forall x n y gv4, (Bool.Is_true (eqb x n) ->  count x (sort y) = gv4 -> count x (insort n (sort y)) = succ gv4).
+Lemma dilemma_three: forall x n gv2 y, (Bool.Is_true (eqb x n) ->  count x gv2 = count x y -> count x (insort n gv2) = succ (count x y)).
+Lemma dilemma_four: forall x n y, (Bool.Is_true (eqb x n) -> count x (insort n (sort y)) = succ (count x y)).
+Lemma dilemma_five_a: forall x n, (Bool.Is_true (eqb x n) -> x = n).
+Lemma dilemma_five_b: forall x n y, (x = n -> count x (insort n (sort y)) = succ (count x y)).

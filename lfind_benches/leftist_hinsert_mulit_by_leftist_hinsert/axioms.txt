@@ -1,0 +1,5 @@
+Lemma dilemma_one: forall gv2 n, (has_leftist_property gv2 = true ->  has_leftist_property (hinsert gv2 n) = true).
+Lemma dilemma_two: forall h l n, (has_leftist_property h = true ->  has_leftist_property (hinsert (hinsert_all l h) n) = true).
+Lemma dilemma_three: forall gv0, (false <> gv0 -> gv0 = true).
+Lemma dilemma_four: forall h gv3 l n, (false <> gv3 ->  has_leftist_property h = gv3 ->  has_leftist_property (hinsert (hinsert_all l h) n) = gv3).
+Lemma dilemma_five: forall h gv3 l n, (has_leftist_property h = gv3 ->  true = has_leftist_property h ->  has_leftist_property (hinsert (hinsert_all l h) n) = gv3).
