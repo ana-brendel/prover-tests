@@ -90,6 +90,7 @@ ran = [
 #                 label = file.removesuffix(".v")
 #                 os.system(axiom_command(test,label))
 #         os.system(f"python3 process.py {full} > {results}")
+#         print(f"DONE WITH {test}")
 
 for test in os.listdir("/home/proverbot/prover-tests/lfind_benches"):
     if not test.startswith("."):
@@ -98,6 +99,7 @@ for test in os.listdir("/home/proverbot/prover-tests/lfind_benches"):
         full = f"/home/proverbot/prover-tests/lfind_benches/{test}"
         results = os.path.join(full,"result_summary")
         os.system(f"python3 process.py {full} > {results}")
+        print(f"DONE WITH {test}")
 
 # print to terminal
 # for test in test_results:
