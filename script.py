@@ -72,9 +72,7 @@ ran = [
     "selection_sort_is_correct_by_selection_sort_sorted",
     "selection_sort_sorted_by_selsort_sorted",
     "selsort_perm_by_select_rest_length",
-    "selsort_sorted_by_select_rest_length_1",
-    "selsort_sorted_by_select_rest_length_2",
-    "selsort_sorted_by_select_smallest"
+    "selsort_sorted_by_select_rest_length_1"
 ]
 
 # for test in test_results:

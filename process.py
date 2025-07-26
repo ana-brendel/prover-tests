@@ -63,11 +63,12 @@ def analyze(test,label):
         for l in r:
             if l.startswith(dilemma) and not found:
                 if r[l] == 0:
-                    n = l.removeprefix(dilemma)
+                    n = int(l.removeprefix(dilemma))
                     axi = f"search-report-axioms-axioms{n}"
                     axi1 = f"search-report-axioms-axioms{n}_1"
                     axi2 = f"search-report-axioms-axioms{n}_2"
                     print(f"{label} provable with just {l}")
+                    print(axi)
                     if axi in r:
                         if r[axi] == 0:
                             print(f"    {label} dilemma {l} provable")
@@ -132,4 +133,6 @@ else:
     lfind_benches = "/home/proverbot/prover-tests/lfind_benches"
     for label in ran:
         test = os.path.join(prover,label)
+        print("------------------------------------------------------------------------------")
         analyze(test,label)
+        print("------------------------------------------------------------------------------")
