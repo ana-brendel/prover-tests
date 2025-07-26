@@ -76,20 +76,20 @@ ran = [
 ]
 
 # for test in test_results:
-for test in test_results:
-    if test not in ran:
-        os.system(cmd(test,-1))
-        os.system(cmd(test,0))
-        for i in test_results[test]:
-            os.system(cmd(test,i))
-            os.system(dilemma_command(test,i))
-        full = f"/home/proverbot/prover-tests/{test}"
-        results = os.path.join(full,"result_summary")
-        for file in os.listdir(full):
-            if file.endswith(".v") and file.startswith("axioms"):
-                label = file.removesuffix(".v")
-                os.system(axiom_command(test,label))
-        os.system(f"python3 process.py {full} > {results}")
+# for test in test_results:
+#     if test not in ran:
+#         os.system(cmd(test,-1))
+#         os.system(cmd(test,0))
+#         for i in test_results[test]:
+#             os.system(cmd(test,i))
+#             os.system(dilemma_command(test,i))
+#         full = f"/home/proverbot/prover-tests/{test}"
+#         results = os.path.join(full,"result_summary")
+#         for file in os.listdir(full):
+#             if file.endswith(".v") and file.startswith("axioms"):
+#                 label = file.removesuffix(".v")
+#                 os.system(axiom_command(test,label))
+#         os.system(f"python3 process.py {full} > {results}")
 
 for test in os.listdir("/home/proverbot/prover-tests/lfind_benches"):
     if not test.startswith("."):
@@ -100,14 +100,14 @@ for test in os.listdir("/home/proverbot/prover-tests/lfind_benches"):
         os.system(f"python3 process.py {full} > {results}")
 
 # print to terminal
-for test in test_results:
-    full = f"/home/proverbot/prover-tests/{test}"
-    results = os.path.join(full,"result_summary")
-    print("------------------------------------------------------------------------------")
-    print(test)
-    os.system(f"cat {results}")
-    print("------------------------------------------------------------------------------")
-    print()
+# for test in test_results:
+#     full = f"/home/proverbot/prover-tests/{test}"
+#     results = os.path.join(full,"result_summary")
+#     print("------------------------------------------------------------------------------")
+#     print(test)
+#     os.system(f"cat {results}")
+#     print("------------------------------------------------------------------------------")
+#     print()
 
 lfind_tests = [
         "goal50_3",

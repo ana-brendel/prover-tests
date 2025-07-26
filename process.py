@@ -62,7 +62,6 @@ def analyze(test,label):
         found = False
         for l in r:
             if l.startswith(dilemma) and not found:
-                print(l)
                 if r[l] == 0:
                     n = int(l.removeprefix(dilemma))
                     axi = f"search-report-axioms-axioms{n}"
